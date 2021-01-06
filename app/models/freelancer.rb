@@ -1,4 +1,5 @@
 class Freelancer < ApplicationRecord
+  has_one :request, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 2 }
   validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
