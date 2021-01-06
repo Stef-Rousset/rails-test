@@ -1,0 +1,24 @@
+<!-- pas possible d'utiliser une stylesheet exterieure
+pas possible d'utiliser du js -->
+
+<style>
+  h2 {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  p {
+    font-size: 18px;
+  }
+</style>
+
+
+<h1>Bonjour <%= @freelancer.name.capitalize %> !</h1>
+
+<p>Pour valider votre inscription sur la liste d'attente à l'espace CoWorkFrance, merci de cliquer sur le lien ci-dessous:</p>
+
+<%=  link_to "Confirmer", confirm_email_url(@freelancer.confirm_token, host: "http://localhost:3000") %>
+
+<p>À bientôt</p>
+<p>CoWorkFrance</p>
+
+
