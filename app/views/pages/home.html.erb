@@ -16,8 +16,10 @@
         <%= f.input :name, :label => "Nom", :placeholder => "Dupond" %>
         <%= f.input :email, :label => "Email", :placeholder => "charles.dupond@gmail.com" %>
         <%= f.input :phone_number, :label => "Téléphone", :placeholder => "0615381224" %>
-        <%= f.input :biography, :label => "Biographie", :placeholder => "Courte biographie" %>
-        <%= f.button :submit, "Soumettre", class: "btn btn-secondary" %>
+        <%= f.input :biography, :label => "Biographie", :placeholder => "Courte biographie", :input_html => {:rows => 4} %>
+        <div class="btn">
+          <%= f.button :submit, "Soumettre", class: "btn btn-secondary" %>
+        </div>
       <% end %>
     </div>
   </div>
