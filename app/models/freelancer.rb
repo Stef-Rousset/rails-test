@@ -1,7 +1,7 @@
 class Freelancer < ApplicationRecord
 
   validates :name, presence: true, length: { minimum: 2 }
-  validates :email, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/ }
   validates :phone_number, presence: true
   validates :biography, presence: true, length: { in: 6..1000 }
 
