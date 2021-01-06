@@ -2,7 +2,9 @@ class FreelancersController < ApplicationController
 
   def create
     @freelancer = Freelancer.new(freelancer_params)
+
     if @freelancer.save!
+      @freelancer.create_request
       flash[:notice] = "Merci pour votre inscription, un email de confirmation vous a été envoyé"
       redirect_to root_path
     else
@@ -12,7 +14,9 @@ class FreelancersController < ApplicationController
   end
 
   private
+
   def freelancer_params
     params.require(:freelancer).permit(:name, :email, :phone_number, :biography)
   end
+
 end
