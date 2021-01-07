@@ -60,7 +60,7 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "rails_test_production"
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "cowork-test.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "http://cowork-test.herokuapp.com" }
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
