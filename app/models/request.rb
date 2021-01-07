@@ -17,4 +17,9 @@ scope :expired, -> { where(status: false).order('created_at asc').joins(:freelan
     self.save
   end
 
+  def status_false
+    self.status = false
+    self.save
+  end
+
 end

@@ -8,7 +8,7 @@ class Freelancer < ApplicationRecord
 
   def set_confirmation_token
      if self.confirm_token.blank?
-         self.confirm_token = SecureRandom.urlsafe_base64.to_s
+        self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
 
@@ -17,5 +17,10 @@ class Freelancer < ApplicationRecord
     self.confirm_token = nil
   end
 
+  def stay_registered
+    if (DateTime.now.day - self.created_at.day) % 90 == 0
+      self.stay_active
+    end
+  end
 end
 

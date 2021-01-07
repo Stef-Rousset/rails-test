@@ -1,0 +1,20 @@
+<style>
+  h2 {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  p {
+    font-size: 18px;
+  }
+</style>
+
+
+<h1>Bonjour <%= @freelancer.name.capitalize %> !</h1>
+
+<p>Tous les 3 mois, vous devez reconfirmer votre inscription sur la liste d'attente pour l'espace CoWorkFrance. Merci de cliquer sur le lien ci-dessous:</p>
+
+<%=  link_to "Confirmer", stay_active_url(@freelancer.confirm_token, host: "http://cowork-test.herokuapp.com") %>
+
+<p>En l'absence de confirmation, votre inscritpion sur la liste d'attente sera effacee.</p>
+<p>À bientôt</p>
+<p>CoWorkFrance</p>
