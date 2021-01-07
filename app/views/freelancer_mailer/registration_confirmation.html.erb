@@ -15,9 +15,10 @@ pas possible d'utiliser du js -->
 <h1>Bonjour <%= @freelancer.name.capitalize %> !</h1>
 
 <p>Pour valider votre inscription sur la liste d'attente à l'espace CoWorkFrance, merci de cliquer sur le lien ci-dessous:</p>
-
+<!-- en developpement
 <%=  link_to "Confirmer", confirm_email_url(@freelancer.confirm_token, host: "http://localhost:3000") %>
-
+-->
+<%=  link_to "Confirmer", confirm_email_url(@freelancer.confirm_token, host: "http://cowork-test.herokuapp.com") %>
 <p>À bientôt</p>
 <p>CoWorkFrance</p>
 
