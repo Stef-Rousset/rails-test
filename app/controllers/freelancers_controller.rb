@@ -21,6 +21,7 @@ class FreelancersController < ApplicationController
    if @freelancer
      @freelancer.validate_email
      @freelancer.save
+     @freelancer.request.status_true
      redirect_to root_url
    else
      flash[:alert] = "Désolé, ce client n'existe pas"
