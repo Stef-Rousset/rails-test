@@ -22,7 +22,7 @@ class FreelancersController < ApplicationController
      @freelancer.validate_email
      @freelancer.save
      @freelancer.request.status_true
-     redirect_to root_url
+     redirect_to confirmation_url
    else
      flash[:alert] = "Désolé, ce client n'existe pas"
      redirect_to root_url
@@ -40,6 +40,7 @@ class FreelancersController < ApplicationController
   @freelancer = Freelancer.find_by_confirm_token(params[:token])
   if @freelancer
     @freelancer.request.status_true
+    redirect_to confirmation_url
   end
  end
 

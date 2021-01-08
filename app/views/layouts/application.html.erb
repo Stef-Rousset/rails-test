@@ -12,7 +12,10 @@
   </head>
 
   <body>
-    <%= yield %>
-    <%= render 'pages/flashes' %>
+    <div class="main-container">
+      <%= render 'pages/banner' %>
+      <%= render 'pages/flashes' %>
+      <%= yield %>
+    </div>
   </body>
 </html>
