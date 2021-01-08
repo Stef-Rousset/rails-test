@@ -2,10 +2,10 @@ class Request < ApplicationRecord
   belongs_to :freelancer
 
 
-scope :unconfirmed, -> { order('created_at asc').joins(:freelancers).where(freelancers: {email_confirmed: false}) }
-scope :confirmed, -> { where(status: true).order('created_at asc').joins(:freelancers).where(freelancers: {email_confirmed: true}) }
+scope :unconfirmed, -> { order('created_at asc').joins(:freelancer).where(freelancer: {email_confirmed: false}) }
+scope :confirmed, -> { where(status: true).order('created_at asc').joins(:freelancer).where(freelancer: {email_confirmed: true}) }
 scope :accepted, -> { where(accepted: true) }
-scope :expired, -> { where(status: false).order('created_at asc').joins(:freelancers).where(freelancers: {email_confirmed: true}) }
+scope :expired, -> { where(status: false).order('created_at asc').joins(:freelancer).where(freelancer: {email_confirmed: true}) }
 
 
   # def self.accepted
