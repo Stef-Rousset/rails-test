@@ -11,10 +11,10 @@
 
 <h1>Bonjour <%= @freelancer.name.capitalize %> !</h1>
 
-<p>Vous êtes actuellement Xème sur la liste d'attente de l'espace CoWorkFrance.
+<p>Vous êtes actuellement <%= @rank %>ème sur la liste d'attente de l'espace CoWorkFrance.
 Tous les 3 mois, vous devez reconfirmer cette inscription: merci de cliquer sur le lien ci-dessous:</p>
 
-<%=  link_to "Confirmer", stay_active_url(@freelancer.confirm_token, host: "http://cowork-test.herokuapp.com") %>
+<%=  link_to "Confirmer", reconfirm_status_url(@freelancer.confirm_token, host: "http://cowork-test.herokuapp.com") %>
 
 <p>En l'absence de confirmation, votre inscritpion sur la liste d'attente sera effacee.</p>
 <p>À bientôt</p>

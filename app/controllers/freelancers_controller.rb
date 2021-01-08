@@ -30,9 +30,12 @@ class FreelancersController < ApplicationController
  end
  # reconfirmer ts les 3 mois
  def stay_active
-    @freelancer.request.status_false
+    @request = Request.confirmed.find(@freelancer.request.id)
+    @index = Request.confirmed.find_index(@request)
+    @rank = @index + 1
     @freelancer.set_confirmation_token
     @freelancer.save
+    @freelancer.request.status_false
     FreelancerMailer.reconfirm_registration(@freelancer).deliver_now
  end
 
