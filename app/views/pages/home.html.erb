@@ -1,19 +1,39 @@
 
 <div class="home-content">
   <div class="text">
-    <p>Rejoignez notre espace de coworking, spécialement adapté aux professionnels de la tech !
-    Chez CoWorkFrance, vous bénéficiez :
-      <ul>
-        <li>d'une connexion internet très haut débit,</li>
-        <li>d'une imprimante,</li>
-        <li>d'un casier personnel,</li>
-        <li>d'un espace de réunion</li>
-        <li> et bien plus encore !!</li>
-      </ul>
-     </p>
-    <br>
-    <p>Nous sommes victimes de notre succès : il n'y a actuellement plus de place disponible 😱</p>
-    <p>Rassurez-vous, vous pouvez vous inscrire pour figurer sur notre liste d'attente, nous vous recontacterons dès qu'une place se libèrera !!</p>
+    <p>Rejoignez notre espace de coworking, spécialement <strong>adapté aux professionnels de la tech,</strong>
+      et bénéficiez de nombreux avantages !
+    </p>
+    <div class="avantages">
+      <div class="card-avantage">
+        <div class="card-avantage-image">
+          <%= image_tag "workstation.png", alt:"bureau", class: "card-avantage-image"%>
+        </div>
+        <div class="card-avantage-text">
+          <p>Station de travail avec imprimante</p>
+        </div>
+      </div>
+      <div class="card-avantage">
+        <div class="card-avantage-image">
+          <%= image_tag "internet.png", alt:"travailler ensemble", class: "card-avantage-image"%>
+        </div>
+        <div class="card-avantage-text">
+          <p>Internet très haut débit</p>
+        </div>
+      </div>
+      <div class="card-avantage">
+        <div class="card-avantage-image">
+          <%= image_tag "worktogether.png", alt:"internet", class: "card-avantage-image"%>
+        </div>
+        <div class="card-avantage-text">
+          <p>Espace de réunion</p>
+        </div>
+      </div>
+    </div>
+    <p>Vous bénéficierez également d'un casier personnel, d'un espace bar, et bien plus encore !!!
+      Nous sommes victimes de notre succès : il n'y a actuellement plus de place disponible 😱. Inscrivez-vous
+      dès à présent sur notre liste d'attente, nous vous recontacterons dès qu'une place se libèrera !
+    </p>
   </div>
   <div class="form">
     <%= simple_form_for @freelancer do |f| %>
