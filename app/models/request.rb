@@ -5,7 +5,7 @@ class Request < ApplicationRecord
 scope :unconfirmed, -> { order('created_at asc').joins(:freelancer).where(freelancers: {email_confirmed: false}) }
 scope :confirmed, -> { where(status: true).order('created_at asc').joins(:freelancer).where(freelancers: {email_confirmed: true}) }
 scope :accepted, -> { where(accepted: true) }
-scope :expired, -> { where(status: false).order('created_at asc').joins(:freelancer).where(freelancers: {email_confirmed: true}) }
+scope :expired, -> { where(status: false).where.not(accepted: true).order('created_at asc').joins(:freelancer).where(freelancers: {email_confirmed: true}) }
 
 
   # def self.accepted
@@ -14,6 +14,7 @@ scope :expired, -> { where(status: false).order('created_at asc').joins(:freelan
 
   def accept!
     self.accepted = true
+    self.status = false # pr sortir de la liste d'attente
     self.save
   end
 
