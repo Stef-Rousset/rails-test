@@ -1,3 +1,5 @@
+require 'date'
+
 class Freelancer < ApplicationRecord
   has_one :request, dependent: :destroy
 
@@ -18,7 +20,7 @@ class Freelancer < ApplicationRecord
   end
 
   def stay_registered
-    if (DateTime.now.day - self.created_at.day) % 90 == 0
+    if (Date.today - self.created_at.to_date) % 90 == 0
       self.stay_active
     end
   end
