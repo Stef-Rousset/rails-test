@@ -28,6 +28,21 @@ class FreelancersController < ApplicationController
      redirect_to root_url
    end
  end
+ # reconfirmer ts les 3 mois
+ def stay_active
+    @freelancer.request.status_false
+    @freelancer.set_confirmation_token
+    @freelancer.save
+    FreelancerMailer.reconfirm_registration(@freelancer).deliver_now
+ end
+
+ def reconfirm_status
+  @freelancer = Freelancer.find_by_confirm_token(params[:token])
+  if @freelancer
+    @freelancer.request.status_true
+  end
+ end
+
 
   private
 

@@ -4,7 +4,7 @@ class Request < ApplicationRecord
 
 scope :unconfirmed, -> { order('created_at asc').joins(:freelancers).where(freelancers: {email_confirmed: false}) }
 scope :confirmed, -> { where(status: true).order('created_at asc').joins(:freelancers).where(freelancers: {email_confirmed: true}) }
-scope :accepted, -> { where(accepted: true)}
+scope :accepted, -> { where(accepted: true AND status: true)}
 scope :expired, -> { where(status: false).order('created_at asc').joins(:freelancers).where(freelancers: {email_confirmed: true}) }
 
   def accept!
@@ -14,6 +14,11 @@ scope :expired, -> { where(status: false).order('created_at asc').joins(:freelan
 
   def status_true
     self.status = true
+    self.save
+  end
+
+  def status_false
+    self.status = false
     self.save
   end
 

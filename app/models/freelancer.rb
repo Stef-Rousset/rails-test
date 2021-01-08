@@ -1,3 +1,5 @@
+require 'date'
+
 class Freelancer < ApplicationRecord
   has_one :request, dependent: :destroy
 
@@ -8,7 +10,7 @@ class Freelancer < ApplicationRecord
 
   def set_confirmation_token
      if self.confirm_token.blank?
-         self.confirm_token = SecureRandom.urlsafe_base64.to_s
+        self.confirm_token = SecureRandom.urlsafe_base64.to_s
     end
   end
 
@@ -17,5 +19,11 @@ class Freelancer < ApplicationRecord
     self.confirm_token = nil
   end
 
+  def stay_registered
+    # if (Date.today - self.created_at.to_date) % 90 == 0
+    if Date.today - 3.months
+      self.stay_active
+    end
+  end
 end
 
