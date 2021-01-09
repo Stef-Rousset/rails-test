@@ -14,11 +14,11 @@ const changeCard = () => {
   cards.forEach(card =>
     card.addEventListener('mouseout', function(){
       if (card.classList.contains('card-av-1')){
-        card.style.backgroundImage = "url('assets/workstation.png')";
+        card.style.backgroundImage = "url('./assets/workstation.png')";
       } else if (card.classList.contains('card-av-2')){
-        card.style.backgroundImage = "url('assets/internet.png')";
+        card.style.backgroundImage = "url('./assets/internet.png')";
       } else if (card.classList.contains('card-av-3')){
-        card.style.backgroundImage = "url('assets/worktogether.png')";
+        card.style.backgroundImage = "url('./assets/worktogether.png')";
       };
     }));
   texts.forEach(text =>
