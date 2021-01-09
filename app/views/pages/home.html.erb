@@ -13,12 +13,12 @@
           <p>Station de travail avec imprimante</p>
         </div>
       </div>
-      <div class="card-avantage">
-        <div class="card-avantage-image">
-          <%= image_tag "internet.png", alt:"travailler ensemble", class: "card-avantage-image"%>
+      <div class="card-avantage select">
+        <p class="para"></p>
+        <div class="card-avantage-image" style='background-image: url(<%= asset_path "internet.png" %>)'>
         </div>
-        <div class="card-avantage-text">
-          <p>Internet très haut débit</p>
+        <div class="card-avantage-text" >
+
         </div>
       </div>
       <div class="card-avantage">
@@ -47,4 +47,18 @@
     <% end %>
   </div>
 </div>
+<script>
+const card = document.querySelector('.select');
+const text = document.querySelector('.para');
+function addCardText(){
+  text.classList.add('visible');
+  text.innerText = 'Internet très haut débit';
+}
+function removeCardText(){
+  text.classList.remove('visible');
+  text.innerText = '';
+}
+card.addEventListener('mouseover', addCardText);
+card.addEventListener('mouseout', removeCardText);
+</script>
 
