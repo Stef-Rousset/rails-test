@@ -1,5 +1,11 @@
+
 <div class="confirmation-content">
-  <p>Merci d'avoir confirmé votre inscription 🚀</p>
-  <p>Nous vous recontacterons dès qu'une place sera disponible.</p>
-  <p>À très vite chez CoworkFrance 😃 </p>
+  <div class="confirmation-content-image" style='background-image: url(<%= asset_path "list.png" %>)'>
+  </div>
+  <div class="confirmation-content-text">
+    <p>Merci d'avoir confirmé votre inscription 🚀</p>
+    <p>Nous vous recontacterons dès qu'une place sera disponible.</p>
+    <p>À très vite chez CoworkFrance 😃 </p>
+  </div>
 </div>
+<%= link_to "Retour à l'accueil", root_path, class:'btn btn-secondary' %>

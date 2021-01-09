@@ -1,19 +1,25 @@
 
 <div class="home-content">
   <div class="text">
-    <p>Rejoignez notre espace de coworking, spécialement adapté aux professionnels de la tech !
-    Chez CoWorkFrance, vous bénéficiez :
-      <ul>
-        <li>d'une connexion internet très haut débit,</li>
-        <li>d'une imprimante,</li>
-        <li>d'un casier personnel,</li>
-        <li>d'un espace de réunion</li>
-        <li> et bien plus encore !!</li>
-      </ul>
-     </p>
-    <br>
-    <p>Nous sommes victimes de notre succès : il n'y a actuellement plus de place disponible 😱</p>
-    <p>Rassurez-vous, vous pouvez vous inscrire pour figurer sur notre liste d'attente, nous vous recontacterons dès qu'une place se libèrera !!</p>
+    <p>Rejoignez notre espace de coworking, spécialement <strong>adapté aux professionnels de la tech,</strong>
+      et bénéficiez de nombreux avantages !
+    </p>
+    <div class="avantages">
+      <div class="card-av card-av-1" style='background-image: url(<%= asset_path "workstation.png" %>)'>
+        <p class="card-av-text">Station de travail personnelle avec imprimante</p>
+      </div>
+      <div class="card-av card-av-2" style='background-image: url(<%= asset_path "internet.png" %>)'>
+        <p class="card-av-text">Internet très haut débit</p>
+      </div>
+      <div class="card-av card-av-3" style='background-image: url(<%= asset_path "worktogether.png" %>)'>
+        <p class="card-av-text">Espace de réunion avec projecteur</p>
+      </div>
+    </div>
+
+    <p>Vous bénéficierez également d'un casier personnel, d'un espace bar, et bien plus encore !!!</p>
+    <p><span>...BREAKING NEWS...</span> Nous sommes victimes de notre succès : il n'y a actuellement plus de place disponible dans notre espace de cowork 😱. Inscrivez-vous
+      dès à présent sur notre liste d'attente, nous vous recontacterons dès qu'une place se libèrera !
+    </p>
   </div>
   <div class="form">
     <%= simple_form_for @freelancer do |f| %>
@@ -27,4 +33,33 @@
     <% end %>
   </div>
 </div>
+
+<!-- <script>
+const cards = document.querySelectorAll('.card-av');
+const texts = document.querySelectorAll('.card-av-text');
+
+cards.forEach(card =>
+  card.addEventListener('mouseover', function(){
+  card.style.backgroundImage ='none';
+  }));
+texts.forEach(text =>
+  text.addEventListener('mouseover', function(){
+  text.classList.add('text-visible');
+  }));
+
+cards.forEach(card =>
+  card.addEventListener('mouseout', function(){
+    if (card.classList.contains('card-av-1')){
+      card.style.backgroundImage = "url(<%= asset_path "workstation.png" %>)";
+    } else if (card.classList.contains('card-av-2')){
+      card.style.backgroundImage = "url(<%= asset_path "internet.png" %>)";
+    } else if (card.classList.contains('card-av-3')){
+      card.style.backgroundImage = "url(<%= asset_path "worktogether.png" %>)";
+    };
+  }));
+texts.forEach(text =>
+  text.addEventListener('mouseout', function(){
+  text.classList.remove('text-visible');
+  }));
+</script> -->
 
