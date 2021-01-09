@@ -52,6 +52,7 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = false
+  config.assets.check_precompiled_asset = false #added to fix the error Sprockets::Rails::Helper::AssetNotPrecompiled
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
