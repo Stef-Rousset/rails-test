@@ -23,7 +23,7 @@
   </div>
   <div class="form">
     <%= simple_form_for @freelancer do |f| %>
-      <%= f.input :name, :label => "Nom", :placeholder => "Dupond" %>
+      <%= f.input :name, :label => "Nom complet", :placeholder => "Charles Dupond" %>
       <%= f.input :email, :label => "Email", :placeholder => "charles.dupond@gmail.com" %>
       <%= f.input :phone_number, :label => "Téléphone", :placeholder => "0615381224" %>
       <%= f.input :biography, :label => "Biographie", :placeholder => "Courte biographie", :input_html => {:rows => 4} %>
