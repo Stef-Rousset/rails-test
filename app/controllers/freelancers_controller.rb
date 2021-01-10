@@ -36,7 +36,7 @@ class FreelancersController < ApplicationController
     @freelancer.set_confirmation_token
     @freelancer.save
     @freelancer.request.status_false
-    FreelancerMailer.reconfirm_registration(@freelancer).deliver_now
+    FreelancerMailer.reconfirm_registration(@freelancer, @rank).deliver_now
  end
 
  def reconfirm_status
