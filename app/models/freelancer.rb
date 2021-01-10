@@ -21,7 +21,7 @@ class Freelancer < ApplicationRecord
 
   def stay_registered
     # if (Date.today - self.created_at.to_date) % 90 == 0
-    if Date.today - 3.months
+    if Date.today - 3.months == self.created_at.to_date
       self.stay_active
     end
   end
