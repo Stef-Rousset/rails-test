@@ -8,7 +8,7 @@ class FreelancersController < ApplicationController
       @freelancer.save
       FreelancerMailer.registration_confirmation(@freelancer).deliver_now
       @freelancer.create_request
-      flash[:notice] = "Merci pour votre inscription, un email de confirmation vous a été envoyé"
+      flash[:notice] = "Merci ! Un email de confirmation vous a été envoyé pour valider votre inscription"
       redirect_to root_path
     else
       flash.now[:alert] = "Votre inscription n'a pas été enregistrée"
