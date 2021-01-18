@@ -5,7 +5,6 @@ class FreelancersController < ApplicationController
 
     if @freelancer.save
       @freelancer.set_confirmation_token
-      @freelancer.save
       FreelancerMailer.registration_confirmation(@freelancer).deliver_now
       @freelancer.create_request
       flash[:notice] = "Merci ! Un email de confirmation vous a été envoyé pour valider votre inscription"
@@ -20,7 +19,6 @@ class FreelancersController < ApplicationController
     @freelancer = Freelancer.find_by_confirm_token(params[:token])
    if @freelancer
      @freelancer.validate_email
-     @freelancer.save
      @freelancer.request.status_true
      redirect_to confirmation_url
    else
@@ -30,11 +28,11 @@ class FreelancersController < ApplicationController
  end
  # reconfirmer ts les 3 mois
  def stay_active
+    @freelancer = Freelancer.stay_registered
     @request = Request.confirmed.find(@freelancer.request.id)
     @index = Request.confirmed.find_index(@request)
     @rank = @index + 1
     @freelancer.set_confirmation_token
-    @freelancer.save
     @freelancer.request.status_false
     FreelancerMailer.reconfirm_registration(@freelancer, @rank).deliver_now
  end

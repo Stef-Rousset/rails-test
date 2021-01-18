@@ -15,17 +15,17 @@ scope :expired, -> { ordered.where(status: false).where.not(accepted: true).join
   def accept!
     self.accepted = true
     self.status = false # pr sortir de la liste d'attente
-    self.save
+    self.save!
   end
 
   def status_true
     self.status = true
-    self.save
+    self.save!
   end
 
   def status_false
     self.status = false
-    self.save
+    self.save!
   end
 
 end
