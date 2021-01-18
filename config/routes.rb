@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :freelancers, only: [:create]
   # resources :requests, only: [:create]
   get '/:token/confirm_email/', to: 'freelancers#confirm_email', as: 'confirm_email'
+  get '/:token/reconfirm_satus/', to: 'freelancers#reconfirm_satus', as: 'reconfirm_satus'
   get 'confirmation', to: 'pages#confirmation'
 end

@@ -19,7 +19,7 @@ class Freelancer < ApplicationRecord
     self.confirm_token = nil
   end
 
-  def stay_registered
+  def self.stay_registered
     # if (Date.today - self.created_at.to_date) % 90 == 0
     if Date.today - 3.months == self.created_at.to_date
       self.stay_active
