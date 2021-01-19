@@ -23,13 +23,15 @@ class Freelancer < ApplicationRecord
 
   def self.stay_registered
     # if (Date.today - self.created_at.to_date) % 90 == 0
+    result = []
     Freelancer.all.each do |freelancer|
       if Date.today - 1.day == freelancer.created_at.to_date
         # self.stay_active
         # pas possible d'appeler un method de controller dans le model, à la place retourner
         # de la data qui sera récupérée par le controller
-        return freelancer
+        result << freelancer
       end
+      return result
     end
   end
 end

@@ -28,13 +28,17 @@ class FreelancersController < ApplicationController
  end
  # reconfirmer ts les 3 mois
  def stay_active
-    @freelancer = Freelancer.stay_registered
-    @request = Request.confirmed.find(@freelancer.request.id)
-    @index = Request.confirmed.find_index(@request)
-    @rank = @index + 1
-    @freelancer.set_confirmation_token
-    @freelancer.request.status_false
-    FreelancerMailer.reconfirm_registration(@freelancer, @rank).deliver_now
+    @freelancers = Freelancer.stay_registered
+    if !@freelancers.empty?
+      @freelancers.each do |freelancer|
+        request = Request.confirmed.find(freelancer.request.id)
+        index = Request.confirmed.find_index(request)
+        rank = index + 1
+        freelancer.set_confirmation_token
+        freelancer.request.status_false
+        FreelancerMailer.reconfirm_registration(freelancer, rank).deliver_now
+      end
+    end
  end
 
  def reconfirm_status
